@@ -13,6 +13,7 @@ Esta é a aplicação backend do monorepo, construída com NestJS.
 - [Docker](https://www.docker.com/) - Containerização
 - [Jest](https://jestjs.io/) - Framework de teste
 
+
 ## Funcionalidades
 
 A API oferece endpoints RESTful para gerenciar usuários, com as seguintes funcionalidades:
@@ -75,14 +76,15 @@ prisma/
    docker-compose up -d
    ```
 
-3. Execute as migrações do banco de dados:
+3. Execute a geração e migrações do banco de dados:
    ```bash
-   npx prisma migrate deploy
+   npm run prisma:generate
+   npm run prisma:migrate:dev
    ```
 
 4. Opcionalmente, popular o banco de dados com dados iniciais:
    ```bash
-   npx prisma db seed
+   npm run prisma:seed
    ```
 
 5. Execute a API:
@@ -94,6 +96,15 @@ prisma/
    cd apps/api
    npm run dev
    ```
+
+
+### Fluxo Típico de Desenvolvimento com Prisma
+
+1. Modifique o schema em `prisma/schema.prisma`
+2. Crie uma migração: `npm run prisma:migrate:dev -- --name nome_da_migracao`
+3. Gere os artefatos do cliente: `npm run prisma:generate`
+4. Atualize o seed se necessário em `prisma/seed.ts`
+5. Execute o seed: `npm run prisma:seed`
 
 6. Acesse a API em [http://localhost:3000](http://localhost:3000) e a documentação Swagger em [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
 
