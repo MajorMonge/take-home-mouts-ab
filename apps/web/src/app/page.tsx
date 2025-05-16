@@ -39,11 +39,11 @@ function UsersPage() {
 
   const handleCloseUserModal = () => {
     setUserModalOpen(false);
-    setSelectedUser(null); // Reset selected user on close
+    setSelectedUser(null);
   };
 
   const handleSaveUser = () => {
-    refetchUsers(); // Refetch users after saving
+    refetchUsers();
   };
   
   return (
