@@ -21,7 +21,7 @@ export class UsersController {
   }
 
   @UseInterceptors(CacheInterceptor)
-  @CacheTTL(600)
+  @CacheTTL(Number(process.env.CACHE_TTL) ?? 600)
   @Get()
   @ApiOkResponse({ type: UserEntity, isArray: true })
   findAll() {
@@ -29,7 +29,7 @@ export class UsersController {
   }
 
   @UseInterceptors(CacheInterceptor)
-  @CacheTTL(600)
+  @CacheTTL(Number(process.env.CACHE_TTL) ?? 600)
   @Get(':id')
   @ApiOkResponse({ type: UserEntity })
   @ApiNotFoundResponse({ description: 'Not found' })
