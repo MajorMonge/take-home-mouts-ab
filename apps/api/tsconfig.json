@@ -1,7 +1,30 @@
 {
-  "extends": "@repo/typescript-config/nestjs.json",
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist",
-  }
+      "allowSyntheticDefaultImports": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": false,
+      "incremental": true,
+      "module": "commonjs",
+      "moduleResolution": "Node10",
+      "noFallthroughCasesInSwitch": false,
+      "noImplicitAny": false,
+      "removeComments": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strictNullChecks": false,
+      "strictBindCallApply": false,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "declaration": true,
+      "declarationMap": true,
+      "isolatedModules": true,
+      "lib": ["es2022", "DOM", "DOM.Iterable"],
+      "moduleDetection": "force",
+      "noUncheckedIndexedAccess": true,
+      "strict": true,
+      "target": "ES2022"
+    }
 }
