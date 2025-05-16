@@ -11,5 +11,13 @@ describe('Root layout', () => {
       expect(metadata).toHaveProperty('title');
       expect(metadata).toHaveProperty('description');
     });
+
+    it('should have the correct title', () => {
+      expect(metadata.title).toBe('Next App');
+    });
+
+    it('should have the correct description', () => {
+      expect(metadata.description).toBe('next app');
+    });
   });
 });
