@@ -31,7 +31,7 @@ Este repositório contém:
 
 *   [Node.js](https://nodejs.org/) (versão >=18, conforme especificado em `package.json`).
 *   [npm](https://www.npmjs.com/) (versão >=10.9.2, conforme especificado em `package.json`).
-*   [Docker](https://www.docker.com/) (Opicional, para execução via Docker).
+*   [Docker](https://www.docker.com/) (Para execução dos serviços de banco de dados e cache).
 
 ### Instalação
 
@@ -40,6 +40,7 @@ Este repositório contém:
     git clone <url-do-repositorio>
     cd take-home-mouts-ab
     ```
+
 2.  Instale as dependências a partir da raiz do projeto:
     ```bash
     npm install
@@ -54,12 +55,19 @@ Este repositório contém:
     docker-compose up -d
     ```
 
-5.  Execute as migrações do banco de dados:
+5.  Execute a geração e migrações do banco de dados:
     ```bash
     cd apps/api
-    npx prisma migrate deploy
+    npm run prisma:generate
+    npm run prisma:migrate:dev
+    npm run prisma:seed
     ```
 
+Para garantir que tudo funcione corretamente, verifique:
+*   A geração do Prisma foi realizada e as migrações foram aplicadas;
+*   As variáveis de ambiente estão configuradas corretamente de acordo com os bancos de dados e serviços que você está utilizando e serviços de cache;
+*   As dependências estão instaladas.
+  
 ## Scripts Disponíveis
 
 Os seguintes scripts podem ser executados a partir da raiz do monorepo:
@@ -89,5 +97,3 @@ Cada aplicação (`apps/web`, `apps/api`) pode requerer seu próprio arquivo `.e
 
 *   `apps/api/.env.example`
 *   `apps/web/.env.example`
-
-Certifique-se de criar os arquivos `.env` correspondentes com os valores apropriados antes de executar as aplicações.
