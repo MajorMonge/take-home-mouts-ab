@@ -3,7 +3,7 @@ import {
   SwaggerModule as NestSwaggerModule,
   DocumentBuilder,
 } from '@nestjs/swagger';
-import * as packageJson from '../../../package.json'; // Import package.json
+import * as packageJson from '../../../package.json'; 
 
 @Injectable()
 export class SwaggerService {
